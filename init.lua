@@ -21,10 +21,10 @@ local config = {
       ensure_installed = { "sumneko_lua", "tsserver", "tailwindcss", "pylsp" },
     },
     ["mason-null-ls"] = {
-      ensure_installed = { "prettierd", "eslint_d", "stylua", "black", "isort", "gdformat" },
+      ensure_installed = { "prettierd", "stylua", "black", "isort", "gdformat" },
     },
     indent_blankline = {
-      show_current_context = false,
+      show_current_context = true,
     },
   },
   options = {
@@ -44,11 +44,14 @@ local config = {
       format_on_save = true,
       filter = function(client)
         -- only enable null-ls for gdscript files
-        if
-          vim.bo.filetype == "gd"
-          or vim.bo.filetype == "gdscript"
-          or vim.bo.filetype == "gdscript3"
-          or vim.bo.filetype == "gdscript4"
+        if vim.bo.filetype == "gd"
+            or vim.bo.filetype == "gdscript"
+            or vim.bo.filetype == "gdscript3"
+            or vim.bo.filetype == "gdscript4"
+            or vim.bo.filetype == "tsx"
+            or vim.bo.filetype == "typescript"
+            or vim.bo.filetype == "jsx"
+            or vim.bo.filetype == "javascript"
         then
           return client.name == "null-ls"
         end
