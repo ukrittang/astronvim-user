@@ -48,10 +48,13 @@ local config = {
             or vim.bo.filetype == "gdscript"
             or vim.bo.filetype == "gdscript3"
             or vim.bo.filetype == "gdscript4"
-            or vim.bo.filetype == "tsx"
             or vim.bo.filetype == "typescript"
-            or vim.bo.filetype == "jsx"
+            or vim.bo.filetype == "typescriptreact"
             or vim.bo.filetype == "javascript"
+            or vim.bo.filetype == "javascriptreact"
+            or vim.bo.filetype == "json"
+            or vim.bo.filetype == "jsonc"
+            or vim.bo.filetype == "markdown"
         then
           return client.name == "null-ls"
         end
