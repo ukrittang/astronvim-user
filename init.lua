@@ -18,13 +18,13 @@ local config = {
       rainbow = { enable = false },
     },
     ["mason-lspconfig"] = {
-      ensure_installed = { "sumneko_lua", "tsserver", "tailwindcss", "pylsp" },
+      ensure_installed = { "sumneko_lua", "rust_analyzer", "tsserver", "tailwindcss", "pylsp" },
     },
     ["mason-null-ls"] = {
-      ensure_installed = { "prettierd", "stylua", "black", "isort", "gdformat" },
+      ensure_installed = { "prettierd", "stylua", "black", "isort" },
     },
     indent_blankline = {
-      show_current_context = true,
+      show_current_context = false,
     },
   },
   options = {
@@ -44,17 +44,18 @@ local config = {
       format_on_save = true,
       filter = function(client)
         -- only enable null-ls for gdscript files
-        if vim.bo.filetype == "gd"
-            or vim.bo.filetype == "gdscript"
-            or vim.bo.filetype == "gdscript3"
-            or vim.bo.filetype == "gdscript4"
-            or vim.bo.filetype == "typescript"
-            or vim.bo.filetype == "typescriptreact"
-            or vim.bo.filetype == "javascript"
-            or vim.bo.filetype == "javascriptreact"
-            or vim.bo.filetype == "json"
-            or vim.bo.filetype == "jsonc"
-            or vim.bo.filetype == "markdown"
+        if
+          vim.bo.filetype == "gd"
+          or vim.bo.filetype == "gdscript"
+          or vim.bo.filetype == "gdscript3"
+          or vim.bo.filetype == "gdscript4"
+          or vim.bo.filetype == "typescript"
+          or vim.bo.filetype == "typescriptreact"
+          or vim.bo.filetype == "javascript"
+          or vim.bo.filetype == "javascriptreact"
+          or vim.bo.filetype == "json"
+          or vim.bo.filetype == "jsonc"
+          or vim.bo.filetype == "markdown"
         then
           return client.name == "null-ls"
         end
