@@ -1,4 +1,7 @@
 local config = {
+  updated = {
+    channel = "stable",
+  },
   -- Set colorscheme
   plugins = {
     init = { { "catppuccin/nvim", as = "catppuccin" } },
@@ -21,7 +24,7 @@ local config = {
       ensure_installed = { "sumneko_lua", "rust_analyzer", "tsserver", "tailwindcss", "pylsp" },
     },
     ["mason-null-ls"] = {
-      ensure_installed = { "prettierd", "stylua", "black", "isort" },
+      ensure_installed = { "prettierd", "stylua" },
     },
     indent_blankline = {
       show_current_context = false,
@@ -42,6 +45,7 @@ local config = {
     },
     formatting = {
       format_on_save = true,
+      timeout_ms = 4800,
       filter = function(client)
         -- only enable null-ls for gdscript files
         if
